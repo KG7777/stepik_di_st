@@ -45,7 +45,7 @@ $$ LANGUAGE plpgsql;
 --------2. Создайте trigger на таблицу users.
 
 CREATE OR REPLACE TRIGGER trigger_log_user_update
-BEFORE UPDATE OF name, email, role ON users  -- Добавлен столбец credit_limit
+BEFORE UPDATE OF name, email, role ON users  -- 
 FOR EACH ROW
 EXECUTE FUNCTION log_user_update();
 
@@ -90,7 +90,7 @@ $$ LANGUAGE plpgsql;
 SELECT cron.schedule(
   'export-audit', 
   '0 3 * * *', 
-  'SELECT export_daily_audit()'
+  $$SELECT export_daily_audit()$$ --добавлено экранирование долларами
 );
 
 SELECT * FROM cron.job;
