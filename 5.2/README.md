@@ -31,6 +31,8 @@ Consumer (consumer_to_clickhouse.py):
 
     4. Использует Consumer Group - гарантирует обработку каждого сообщения только один раз
 
+---
+
 ### **Требования**
 
  - Docker и Docker Compose
@@ -38,6 +40,8 @@ Consumer (consumer_to_clickhouse.py):
  - Python 3.8+
 
  - Библиотеки: json, kafka-python, psycopg2, clickhouse-connect,time
+
+---
 
 ### **Этапы:**
 
@@ -50,10 +54,12 @@ cd repository_name
 Или скачайте только файлы в папке 5.2
 
 #### 2. Запуск docker-compose.yml:
+--
 
 docker-compose up -d
 
 #### 3. Настройка PostgreSQL
+--
 
 Подключение к PostgreSQL
  - Порт: 5432
@@ -114,7 +120,7 @@ pip install clickhouse-connect
 Select * from user_logins ul 
 ```
 
-:white_check_mark: ### **Результат**
+###  :white_check_mark: **Результат**
  - Передаются данные из PostgreSQL в ClickHouse через Kafka
  - Предотвращаются повторные отправки
 
