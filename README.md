@@ -68,6 +68,10 @@ Retention: сколько пользователей вернулись в те�
 4. Сохранять отчёт в формате .json о количестве пользователей, архивированных в этот день. Автоматизация через cron не нужна, запуск скрипта - ручной, ежедневный. Используйте только pymongo, json, os и datetime. Формат отчета - 
 <img src="https://ucarecdn.com/980fee3f-71d9-479d-a9bd-ac126b42f488/">
 
+:white_check_mark: Решение: 
+
+<a href="https://github.com/KG7777/stepik_di_st/blob/main/4.6.sql">Ссылка</a>
+
 # Задание 5 Работа с Kafka
 
 В базе данных PostgreSQL хранится таблица user_logins. В ней содержатся события пользователей, такие как логин, регистрация, покупка и т.д. Каждый раз, когда необходимо перенести эти события из PostgreSQL в другую систему (например, ClickHouse), можно воспользоваться Kafka как промежуточным звеном для передачи сообщений. Однако, в реальных задачах возникает риск повторной отправки уже обработанных данных. Чтобы избежать дублирования, нужно использовать дополнительное логическое поле в таблице — sent_to_kafka BOOLEAN, которое будет сигнализировать, были ли данные уже отправлены в Kafka.
@@ -97,8 +101,8 @@ Retention: сколько пользователей вернулись в те�
   <img src="https://github.com/devicons/devicon/blob/master/icons/apachekafka/apachekafka-original.svg" title="kafka" **alt="kafka" width="40" height="40"/>
   <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" title="python" **alt="python" width="40" height="40"/>
   <img src="https://github.com/devicons/devicon/blob/master/icons/dbeaver/dbeaver-original.svg" title="dbeaver" **alt="dbeaver" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/ClickHouse/clickhouse-presentations/master/images/logo-clickhouse.svg" title="clickhouse" **alt="clickhouse" width="40" height="40"/>
-</div>
+  <img src="https://raw.githubusercontent.com/ClickHouse/clickhouse-presentations/master/images/logo-clickhouse.svg" title="clickhouse" **alt="clickhouse" width="40" height="40"/><img src="https://raw.githubusercontent.com/ClickHouse/clickhouse-presentations/master/images/clickhouse-black.svg" title="clickhouse" **alt="clickhouse" width="40" height="40"/>
+</div> 
 
 
 
