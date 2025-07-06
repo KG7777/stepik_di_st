@@ -101,7 +101,7 @@ Retention: сколько пользователей вернулись в те�
   <img src="https://github.com/devicons/devicon/blob/master/icons/apachekafka/apachekafka-original.svg" title="kafka" **alt="kafka" width="40" height="40"/>
   <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" title="python" **alt="python" width="40" height="40"/>
   <img src="https://github.com/devicons/devicon/blob/master/icons/dbeaver/dbeaver-original.svg" title="dbeaver" **alt="dbeaver" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/ClickHouse/clickhouse-presentations/master/images/logo-clickhouse.svg" title="clickhouse" **alt="clickhouse" width="120" height="40"/>
+  <img src="clickhouse.svg" title="clickhouse" **alt="clickhouse" width="40" height="40"/>
 </div> 
 
 
