@@ -14,7 +14,7 @@
 
 5. Установите планировщик pg_cron на 3:00 ночи
 
-:white_check_mark: Решение:
+## :white_check_mark: Решение:
 
 <a href="https://github.com/KG7777/stepik_di_st/blob/main/4.2.sql">Ссылка</a>
 
@@ -49,7 +49,7 @@ Retention: сколько пользователей вернулись в те�
 
 <img src="https://ucarecdn.com/e0f99443-1a80-4676-9a70-1cef087af415/">
 
-:white_check_mark: Решение: 
+## :white_check_mark: Решение: 
 
 <a href="https://github.com/KG7777/stepik_di_st/blob/main/4.3.sql">Ссылка</a>
 
@@ -68,7 +68,7 @@ Retention: сколько пользователей вернулись в те�
 4. Сохранять отчёт в формате .json о количестве пользователей, архивированных в этот день. Автоматизация через cron не нужна, запуск скрипта - ручной, ежедневный. Используйте только pymongo, json, os и datetime. Формат отчета - 
 <img src="https://ucarecdn.com/980fee3f-71d9-479d-a9bd-ac126b42f488/">
 
-:white_check_mark: Решение: 
+## :white_check_mark: Решение: 
 
 <a href="https://github.com/KG7777/stepik_di_st/blob/main/4.6.sql">Ссылка</a>
 
@@ -86,7 +86,7 @@ Retention: сколько пользователей вернулись в те�
 
 В результате реализации получится устойчивое решение миграции данных с защитой от дубликатов.
 
-:white_check_mark: Решение: 
+## :white_check_mark: Решение: 
 
 <a href="https://github.com/KG7777/stepik_di_st/blob/main/5.2/README.md">Ссылка</a>
 
@@ -101,7 +101,7 @@ Retention: сколько пользователей вернулись в те�
   <img src="https://github.com/devicons/devicon/blob/master/icons/apachekafka/apachekafka-original.svg" title="kafka" **alt="kafka" width="40" height="40"/>
   <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" title="python" **alt="python" width="40" height="40"/>
   <img src="https://github.com/devicons/devicon/blob/master/icons/dbeaver/dbeaver-original.svg" title="dbeaver" **alt="dbeaver" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/ClickHouse/clickhouse-presentations/master/images/logo-clickhouse.svg" title="clickhouse" **alt="clickhouse" width="40" height="40"/><img src="https://raw.githubusercontent.com/ClickHouse/clickhouse-presentations/master/images/clickhouse-black.svg" title="clickhouse" **alt="clickhouse" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/ClickHouse/clickhouse-presentations/master/images/logo-clickhouse.svg" title="clickhouse" **alt="clickhouse" width="120" height="40"/>
 </div> 
 
 
