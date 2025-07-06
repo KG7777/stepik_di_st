@@ -54,12 +54,10 @@ cd repository_name
 Или скачайте только файлы в папке 5.2
 
 #### 2. Запуск docker-compose.yml:
---
 
 docker-compose up -d
 
 #### 3. Настройка PostgreSQL
---
 
 Подключение к PostgreSQL
  - Порт: 5432
