@@ -25,9 +25,13 @@ for row in rows:
         "timestamp": float(row[3])  # преобразуем Decimal → float
     }
     producer.send("user_events", value=data)
+    producer.flush()
     cursor.execute("""update user_logins set sent_to_kafka = TRUE where id=%s""",(row[0],))
     conn.commit()
     print("Sent:", data)
     time.sleep(0.5)
+
+cursor.close
+conn.close()
     
     
