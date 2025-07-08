@@ -3,13 +3,17 @@ version: '3.8'
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.3
+    container_name: zookeeper_5.2
     ports:
       - "2181:2181"
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
+    volumes:
+    - zookeeper_data:/var/lib/zookeeper
 
   kafka:
     image: confluentinc/cp-kafka:7.3.3
+    container_name: kafka_5.2
     ports:
       - "9092:9092"
     depends_on:
@@ -18,20 +22,24 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    volumes:
+     - kafka_data:/var/lib/kafka/data
 
   postgres:
     image: postgres:15
-    container_name: postgres_5.1
+    container_name: postgres_5.2
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: test_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data   
 
   clickhouse:
     image: clickhouse/clickhouse-server:latest
-    container_name: clickhouse_5.1
+    container_name: clickhouse_5.2
     restart: always
     ports:
       - "8123:8123"
@@ -48,5 +56,7 @@ services:
       - clickhouse_data:/var/lib/clickhouse    
 
 volumes:
-  pgdata:
+  zookeeper_data:
+  kafka_data:
+  pg_data:
   clickhouse_data:
