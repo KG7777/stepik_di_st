@@ -70,8 +70,9 @@ class AsyncObjectStorage:
     async def remove_file(self, remote_name: str):
         async with self._connect() as remote:
             await remote.delete_object(Bucket=self._bucket, Key=remote_name)
-        logger.info(f"Successfully deleted: {remote_name}") 
-    
+        logger.info(f"Successfully deleted: {remote_name}")
+
+    # задание 1 часть
     async def list_files(self) -> list[str]:
         """
         Возвращает список всех файлов в бакете
@@ -86,6 +87,7 @@ class AsyncObjectStorage:
             logger.info(f"Found {len(files)} files in bucket")  
             return files
     
+    #задание 1 часть
     async def file_exists(self, remote_name: str) -> bool:
         """
         Проверяет существование файла в хранилище
