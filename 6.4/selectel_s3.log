@@ -1,0 +1,11 @@
+2025-07-28 13:26:34,264 - INFO - Uploading file: test.txt as test.txt
+2025-07-28 13:26:35,402 - INFO - Successfully uploaded: test.txt
+2025-07-28 13:26:35,403 - INFO - Checking if file exists: test.txt
+2025-07-28 13:26:35,804 - INFO - File exists: test.txt
+2025-07-28 13:26:35,807 - INFO - Listing files in bucket
+2025-07-28 13:26:36,249 - INFO - Found 2 files in bucket
+2025-07-28 13:26:36,251 - INFO - Downloading file: test.txt to downloaded_test.txt
+2025-07-28 13:26:36,659 - INFO - Successfully downloaded: test.txt
+2025-07-28 13:26:37,108 - INFO - Successfully deleted: test.txt
+2025-07-28 13:26:37,109 - INFO - Checking if file exists: test.txt
+2025-07-28 13:26:37,541 - INFO - File not found: test.txt
