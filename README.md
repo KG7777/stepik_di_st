@@ -100,7 +100,7 @@ Retention: сколько пользователей вернулись в те�
 
 ## :white_check_mark: Решение: 
 
-<a href="https://github.com/KG7777/stepik_di_st/6.4/selectel.py">Ссылка</a>
+<a href="https://github.com/KG7777/stepik_di_st/blob/main/6.4/selectel.py">Ссылка</a>
 
 Для отображения процесса:
 
