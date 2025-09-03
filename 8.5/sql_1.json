@@ -1,0 +1,37 @@
+{
+  "dag_id": "example_dag_name",
+  "description": "Описание DAG для отображения в Airflow UI",
+  "schedule_interval": "@daily",
+  "start_date": "2025-09-2",
+  "catchup": false,
+  "max_active_runs": 1,
+  "retries": 2,
+  "retry_delay": 300,
+  "tags": ["sql", "etl", "data-processing"],
+  "tasks": [
+    {
+      "task_id": "create_table",
+      "type": "CREATE",
+      "sql_code": "CREATE TABLE IF NOT EXISTS test_data (id SERIAL primary key,fam text,name text,dat_b timestamp);",
+      "connection_id": "postgres"
+    },
+    {
+      "task_id": "insert_data",
+      "type": "INSERT",
+      "sql_code": "INSERT INTO test_data(fam,name,dat_b) values ('Иванов','Иван','1995-11-01'),('Вовкин','Сережа','1999-05-12'),('Миров','Александр','2001-09-30');",
+      "connection_id": "postgres"
+    },
+    {
+      "task_id": "extract_data",
+      "type": "SELECT",
+      "sql_code": "SELECT * FROM test_data;",
+      "connection_id": "postgres",
+      "output_path": "/tmp/data/users.csv",
+      "parameters": {
+        "index_col": "id",
+        "encoding": "utf-8"
+      }
+    }
+
+  ]
+}

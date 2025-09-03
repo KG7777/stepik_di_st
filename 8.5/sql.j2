@@ -1,0 +1,71 @@
+from airflow import DAG
+from airflow.operators.python import PythonOperator
+from airflow.providers.postgres.operators.postgres import PostgresOperator
+from airflow.providers.postgres.hooks.postgres import PostgresHook
+from datetime import datetime, timedelta
+import os
+
+{% for task in tasks %}
+{% if task.type == "SELECT" %}
+def execute_sql_and_save_{{ loop.index }}(**kwargs):
+    """Выполнение SQL SELECT и сохранение результатов"""
+    hook = PostgresHook(postgres_conn_id="{{ task.connection_id }}")
+    execution_date = kwargs['ds']  # Дата выполнения DAG
+
+    with hook.get_conn() as conn:
+        with conn.cursor() as cur:
+            # Выполняем SQL запрос
+            cur.execute("{{ task.sql_code }}", (execution_date,))
+            rows = cur.fetchall()
+
+            # Сохранение результатов в CSV
+            output_path = "{{ task.output_path }}".format(**kwargs)
+            os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+            with open(output_path, 'w', encoding='utf-8') as f:
+                # Записываем данные
+                for row in rows:
+                    f.write(",".join(str(field) for field in row) + "\\n")
+{% endif %}
+{% endfor %}
+
+with DAG(
+    dag_id="{{ dag_id }}",
+    description="{{ description }}",
+    start_date=datetime({{ start_date.year }}, {{ start_date.month }}, {{ start_date.day }}),
+    schedule_interval="{{ schedule_interval }}",
+    catchup={{ catchup }},
+    max_active_runs={{ max_active_runs }},
+    tags={{ tags }},
+    default_args={
+        "retries": {{ retries }},
+        "retry_delay": timedelta(seconds={{ retry_delay }}),
+        "on_success_callback": None  # Можно добавить callback при успехе
+    }
+) as dag:
+
+    {% for task in tasks %}
+    {% if task.type in ["INSERT", "UPDATE", "DELETE", "CREATE"] %}
+    {{ task.task_id }} = PostgresOperator(
+        task_id="{{ task.task_id }}",
+        sql="""
+{{ task.sql_code | indent(8) }}
+        """,
+        postgres_conn_id="{{ task.connection_id }}",
+        autocommit=True
+    )
+    {% elif task.type == "SELECT" %}
+    {{ task.task_id }} = PythonOperator(
+        task_id="{{ task.task_id }}",
+        python_callable=execute_sql_and_save_{{ loop.index }},
+        provide_context=True
+    )
+    {% endif %}
+    {% endfor %}
+
+
+    # Установка зависимостей
+    {% for i in range(1, tasks|length) %}
+    {{ tasks[i-1].task_id }} >> {{ tasks[i].task_id }}
+    {% endfor %}
+

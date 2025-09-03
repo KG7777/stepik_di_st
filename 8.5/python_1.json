@@ -1,0 +1,78 @@
+{
+  "dag_id": "validation_api_dag",
+  "description": "DAG с валидацией данных и API вызовами",
+  "schedule_interval": "@once",
+  "start_date": "2025-09-01",
+  "catchup": false,
+  "max_active_runs": 1,
+  "retries": 1,
+  "retry_delay": 300,
+  "tags": ["validation", "api", "data-quality"],
+  "tasks": [
+    {
+      "task_id": "call_data_api",
+      "task_type": "API_CALL",
+      "api_url": "https://api.agify.io/?name=vadim",
+      "method": "GET",
+      "output_path": "/tmp/data/api_response.json",
+      "headers": {
+        "Authorization": "Bearer {{ var.value.API_TOKEN }}",
+        "Content-Type": "application/json"
+      },
+      "timeout": 30,
+      "retry_attempts": 3
+    },
+    {
+      "task_id": "validate_api_response",
+      "task_type": "VALIDATION",
+      "validation_type": "json_schema",
+      "data_path": "/tmp/data/api_response.json",
+      "rules": [
+        {
+          "rule_type": "not_null",
+          "fields": ["id", "name", "timestamp"]
+        },
+        {
+          "rule_type": "value_range",
+          "field": "price",
+          "min": 0,
+          "max": 1000
+        },
+        {
+          "rule_type": "string_format",
+          "field": "email",
+          "pattern": "^[^@]+@[^@]+\\.[^@]+$"
+        },
+        {
+          "rule_type": "unique_values",
+          "field": "id"
+        }
+      ],
+      "on_failure": "alert",
+      "failure_actions": ["send_email", "log_error"]
+    },
+    {
+      "task_id": "validate_csv_data",
+      "task_type": "VALIDATION",
+      "validation_type": "csv_validation",
+      "data_path": "/tmp/data/dataset.csv",
+      "rules": [
+        {
+          "rule_type": "not_null",
+          "columns": ["user_id", "transaction_date", "amount"]
+        },
+        {
+          "rule_type": "data_type",
+          "column": "amount",
+          "expected_type": "float"
+        },
+        {
+          "rule_type": "value_range",
+          "column": "amount",
+          "min": 0.01,
+          "max": 10000.00
+        }
+      ]
+    }
+  ]
+}
