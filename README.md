@@ -112,24 +112,39 @@ Retention: сколько пользователей вернулись в те�
 
 # Задание 8 Реализация генератора DAGs
 
-Реализация есть только по SQL. Но хочется хоть что-то сдать...
+Реализация рабочая есть только по SQL. Но хочется хоть что-то сдать...
+Питон с ошибками...
 
-1. Создается даг, который при запуске сгенерирует другой даг по шаблону
+1. Создается даг, который при запуске сгенерирует другие даги по шаблону
 <img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/1.png">
 <img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/1_1.png">
-2. Должны быть три папки: json и templates и scripts(Для python функции)
+2. Должны быть три папки: json и templates и script(Для python функции)
 <img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/2_json.png">
 <img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/2_templates.png">
 3. Json заполняется по шаблону: 
-<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/sql.py">Ссылка SQL json</a>
-4. Для SQL 4 типа SELECT INSERT UPDATE DELETE
-<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/python.py">Ссылка python json</a>
-5. Для python пока два вида это API_CALL и VALIDATION
-4. После выполнения дага, файлы отработанные переносятся в папку archive
+
+<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/sql_1.json">Ссылка SQL json</a>
+
+Для SQL 4 типа SELECT INSERT UPDATE DELETE
+
+<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/python_1.json">Ссылка python json</a>
+
+Для python пока два вида это API_CALL и VALIDATION 
+
+4. J2 для SQL и PYTHON
+
+<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/sql.j2">Ссылка sql j2</a>
+
+<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/python.j2">Ссылка python j2</a>
+
+5. Ссылка питон функций 
+<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/python_function.py">Ссылка python py</a>
+
+6. После выполнения дага, файлы отработанные переносятся в папку archive
 <img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/archive.png">
-5. Для sql создается даг example_dag_name
+7. Для sql создается даг example_dag_name
 <img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/sql.png">
-6. Для python создается даг validation_api_dag
+8. Для python создается даг validation_api_dag
 
 
 ---
