@@ -145,7 +145,7 @@ Retention: сколько пользователей вернулись в те�
 7. Для sql создается даг example_dag_name
 <img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/sql.png">
 8. Для python создается даг validation_api_dag
-
+<img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/python.png">
 
 ---
 
