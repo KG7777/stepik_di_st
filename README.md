@@ -138,7 +138,7 @@ Retention: сколько пользователей вернулись в те�
 <a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/python.j2">Ссылка python j2</a>
 
 5. Ссылка питон функций 
-<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/python_function.py">Ссылка python py</a>
+<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/python_functions.py">Ссылка python py</a>
 
 6. После выполнения дага, файлы отработанные переносятся в папку archive
 <img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/archive.png">
