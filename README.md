@@ -106,6 +106,31 @@ Retention: сколько пользователей вернулись в те�
 
 <img src="https://github.com/KG7777/stepik_di_st/blob/main/6.4/Отчет1.1.png">
 
+Второе задание:
+
+Для отображение процесса
+
+# Задание 8 Реализация генератора DAGs
+
+Реализация есть только по SQL. Но хочется хоть что-то сдать...
+
+1. Создается даг, который при запуске сгенерирует другой даг по шаблону
+<img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/1.png">
+<img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/1_1.png">
+2. Должны быть три папки: json и templates и scripts(Для python функции)
+<img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/2_json.png">
+<img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/2_templates.png">
+3. Json заполняется по шаблону: 
+<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/sql.py">Ссылка SQL json</a>
+4. Для SQL 4 типа SELECT INSERT UPDATE DELETE
+<a href="https://github.com/KG7777/stepik_di_st/blob/main/8.5/python.py">Ссылка python json</a>
+5. Для python пока два вида это API_CALL и VALIDATION
+4. После выполнения дага, файлы отработанные переносятся в папку archive
+<img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/archive.png">
+5. Для sql создается даг example_dag_name
+<img src="https://github.com/KG7777/stepik_di_st/blob/main/8.5/sql.png">
+6. Для python создается даг validation_api_dag
+
 
 ---
 
